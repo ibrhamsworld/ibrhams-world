@@ -61,12 +61,10 @@ export default function Features() {
       ref={ref}
       className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50/50 dark:from-gray-900 dark:to-gray-800 overflow-hidden"
     >
-      {/* Background Elements */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -86,7 +84,6 @@ export default function Features() {
           </p>
         </motion.div>
 
-        {/* Features Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
           {features.map((feature, index) => (
             <motion.div
@@ -97,11 +94,9 @@ export default function Features() {
               className="group relative"
             >
               <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700 overflow-hidden">
-                {/* Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgGradient} dark:opacity-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 
                 <div className="relative z-10">
-                  {/* Icon */}
                   <div className="flex items-center gap-4 mb-6">
                     <div className={`p-3 rounded-2xl bg-gradient-to-r ${feature.gradient} shadow-lg`}>
                       <feature.icon className="w-6 h-6 text-white" />
@@ -111,12 +106,10 @@ export default function Features() {
                     </h3>
                   </div>
 
-                  {/* Description */}
                   <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                     {feature.desc}
                   </p>
 
-                  {/* Highlights */}
                   <div className="space-y-2">
                     {feature.highlights.map((highlight, idx) => (
                       <div key={idx} className="flex items-center gap-3 text-sm">
@@ -128,7 +121,6 @@ export default function Features() {
                     ))}
                   </div>
 
-                  {/* Hover Effect Line */}
                   <div className={`absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r ${feature.gradient} group-hover:w-full transition-all duration-500`} />
                 </div>
               </div>
@@ -136,7 +128,6 @@ export default function Features() {
           ))}
         </div>
 
-        {/* Stats Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -166,7 +157,6 @@ export default function Features() {
           </div>
         </motion.div>
 
-        {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

@@ -6,16 +6,13 @@ import { ArrowRight, Star, Award, CheckCircle } from "lucide-react";
 export default function Hero() {
   return (
     <section id="home" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with gradient and pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900/20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-100/50 to-transparent dark:from-blue-900/20"></div>
-        {/* Subtle grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Content Section */}
           <div className="text-center lg:text-left space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -23,7 +20,6 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              {/* Trust Badge */}
               <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
@@ -35,7 +31,6 @@ export default function Hero() {
                 </span>
               </div>
 
-              {/* Main Heading */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
                 <span className="block text-gray-900 dark:text-white">
                   Transform Your
@@ -45,7 +40,6 @@ export default function Hero() {
                 </span>
               </h1>
 
-              {/* Description */}
               <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
                 Professional <span className="font-semibold text-blue-600 dark:text-blue-400">painting</span>, 
                 {" "}<span className="font-semibold text-purple-600 dark:text-purple-400">decorating</span>, and 
@@ -53,7 +47,6 @@ export default function Hero() {
                 services that bring your vision to life.
               </p>
 
-              {/* Features List */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -73,7 +66,6 @@ export default function Hero() {
                 ))}
               </motion.div>
 
-              {/* CTA Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -97,7 +89,6 @@ export default function Hero() {
                 </Link>
               </motion.div>
 
-              {/* Stats */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -122,7 +113,6 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -130,7 +120,6 @@ export default function Hero() {
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              {/* Main Image */}
               <Image
                 src="/p.jpg"
                 alt="Professional painting and decorating services"
@@ -139,12 +128,9 @@ export default function Hero() {
                 className="w-full h-auto object-cover"
                 priority
               />
-              
-              {/* Overlay gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
 
-            {/* Floating Cards */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -177,7 +163,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

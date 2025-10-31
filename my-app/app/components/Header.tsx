@@ -11,7 +11,6 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -20,12 +19,10 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -42,7 +39,6 @@ export default function Header() {
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/portfolio", label: "Portfolio" },
-    { href: "/products", label: "Products" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -62,7 +58,6 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 lg:h-20">
-            {/* Logo with improved design */}
             <Link href="/" className="flex items-center space-x-2 group">
               <div className="relative">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform">
@@ -79,7 +74,6 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1">
               {navItems.map((item) => (
                 <Link
@@ -103,7 +97,6 @@ export default function Header() {
               ))}
             </nav>
 
-            {/* CTA Button - Desktop */}
             <div className="hidden lg:flex items-center space-x-4">
               <Link
                 href="tel:+1234567890"
@@ -120,7 +113,6 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden p-2 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
@@ -142,11 +134,9 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -155,7 +145,6 @@ export default function Header() {
               className="lg:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
             />
 
-            {/* Mobile Menu Panel */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -163,7 +152,6 @@ export default function Header() {
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="lg:hidden fixed top-0 right-0 z-50 w-80 h-full bg-white dark:bg-gray-900 shadow-2xl"
             >
-              {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
                 <div className="flex items-center space-x-2">
                   <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
@@ -182,7 +170,6 @@ export default function Header() {
                 </button>
               </div>
 
-              {/* Navigation Items */}
               <nav className="p-6">
                 <div className="space-y-2">
                   {navItems.map((item, index) => (
@@ -210,7 +197,6 @@ export default function Header() {
                   ))}
                 </div>
 
-                {/* Mobile CTA Section */}
                 <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 space-y-4">
                   <Link
                     href="tel:+1234567890"
@@ -229,7 +215,6 @@ export default function Header() {
                   </Link>
                 </div>
 
-                {/* Contact Info */}
                 <div className="mt-6 text-sm text-gray-500 dark:text-gray-400">
                   <p>Mon - Fri: 8:00 AM - 6:00 PM</p>
                   <p className="mt-1">Sat: 9:00 AM - 4:00 PM</p>
@@ -240,7 +225,6 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* Add padding to prevent content from being hidden behind fixed header */}
       <div className="h-16 lg:h-20" />
     </>
   );

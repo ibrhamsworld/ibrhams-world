@@ -1,19 +1,20 @@
+"use client"
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import About from "./components/About";
 import Features from "./components/Features";
 import Portfolio from "./components/Portfolio";
+
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import LoadingSpinner from "./components/ui/LoadingSpinner";
 import ScrollToTop from "./components/ui/ScrollToTop";
 import WhatsAppFloat from "./components/ui/WhatsAppFloat";
-
+import Testimonials from "./components/Testimonials"
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Check if device is mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -22,7 +23,6 @@ export default function Home() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
-    // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
@@ -33,7 +33,6 @@ export default function Home() {
     };
   }, []);
 
-  // Prevent scroll when loading
   useEffect(() => {
     if (isLoading) {
       document.body.style.overflow = 'hidden';
@@ -62,13 +61,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white via-blue-50/30 to-white dark:from-gray-900 dark:via-blue-900/10 dark:to-gray-900">
-      {/* Header */}
       <Header />
       
-      {/* Main Content */}
       <main className="flex-grow">
         <section id="home">
           <Hero />
+        </section>
+        
+        <section id="about">
+          <About />
         </section>
         
         <section id="services">
@@ -79,19 +80,20 @@ export default function Home() {
           <Portfolio />
         </section>
         
+        <section id="testimonials">
+          <Testimonials />
+        </section>
+        
         <section id="contact">
           <Contact />
         </section>
       </main>
 
-      {/* Footer */}
       <Footer />
 
-      {/* Floating Action Buttons */}
       <ScrollToTop />
       <WhatsAppFloat />
       
-      {/* Mobile Navigation Indicator */}
       {isMobile && (
         <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-40 md:hidden">
           <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-gray-200 dark:border-gray-700">
@@ -105,14 +107,11 @@ export default function Home() {
         </div>
       )}
 
-      {/* Performance Optimizations */}
       <style jsx global>{`
-        /* Smooth scrolling for better mobile experience */
         html {
           scroll-behavior: smooth;
         }
         
-        /* Improve tap targets on mobile */
         @media (max-width: 768px) {
           button, a {
             min-height: 44px;
@@ -120,12 +119,10 @@ export default function Home() {
           }
         }
         
-        /* Prevent horizontal scroll */
         body {
           overflow-x: hidden;
         }
         
-        /* Better text rendering */
         * {
           text-rendering: optimizeLegibility;
           -webkit-font-smoothing: antialiased;
